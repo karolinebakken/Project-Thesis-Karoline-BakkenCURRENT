@@ -17,7 +17,7 @@ This is based on the following principles:
 \end{itemize}
  \cite{moan2003}
 \subsection{Principle of Virtual Work}
-The element stiffness relationship can be derived based on virtual work (Galerkin's Method). This method assumes a displacement for each element so that the displacement is continuous between elements. The method can be generalized and used for all kinds of structural problems in all dimensions \cite{moan2003}. The method gives an approximation rather than the exact solution. This is done by,  in average, fulfilling the differential equations in the problem by approximated weighted function multiplication a volume integration. By setting the internal work equal to the external work, it is assumed that the error from assuming the weight function in the external work is equal to the error in the internal work. If the weight functions are selected so that the boundary conditions are fulfilled appropriately, the error in the external work will cancel out. This means that the total error in the volume integration is zero in average, but at an arbitrary point, the equilibrium equation is not necessarily fulfilled. this is referred to as integrated equilibrium. The principle of virtual work in a body with deformed volume and surfaces in equilibrium :   
+The element stiffness relationship can be derived based on virtual work (Galerkin's Method). This method assumes a displacement for each element so that the displacement is continuous between elements. The method can be generalized and used for all kinds of structural problems in all dimensions \cite{moan2003}. The method gives an approximation rather than the exact solution. This is done by,  in average, fulfilling the differential equations in the problem by approximated weighted function multiplication a volume integration. By setting the internal work equal to the external work, it is assumed that the error from assuming the weight function in the external work is equal to the error in the internal work. If the weight functions are selected so that the boundary conditions are fulfilled appropriately, the error in the external work will cancel out. This means that the total error in the volume integration is zero in average, but at an arbitrary point, the equilibrium equation is not necessarily fulfilled. This is referred to as integrated equilibrium. The principle of virtual work in a body with deformed volume and surfaces in equilibrium:   
 
 \begin{equation}
     \int_v (\rho \boldsymbol{\ddot{u}} - \boldsymbol{f}) \cdot \delta \boldsymbol{u}dV + \int_V \boldsymbol{\sigma}: \delta \epsilon dV - \int_S \boldsymbol{t} \cdot \delta \boldsymbol{u} dS =0
@@ -44,7 +44,7 @@ According to \cite{moan2003}, a system is non-linear if it contains non-linear m
 \begin{equation}
     \boldsymbol{R}=\boldsymbol{K(r)}\boldsymbol{r}
 \end{equation}
-The stiffness matrix is often written on differential form, with the incremental stiffness matrix, $K_I$ :
+The stiffness matrix is often written on differential form, with the incremental stiffness matrix, $K_I$:
 \begin{equation}
     d\boldsymbol{R}=\frac{d}{dr}(\boldsymbol{K(r)r})dr
 \end{equation}
@@ -55,8 +55,8 @@ The stiffness matrix is often written on differential form, with the incremental
 In general it can be challenging to determine $\boldsymbol{r}$ for a given $\boldsymbol{R}$ analytically, and thus iterative methods will have to be used. Only the methods relevant for the project/master will be presented. 
 
 \subsection{Combined Method}
-The combined method is a combination of the Euler-Cautchy Method and the Newton-Raphson Method. 
-\subsubsection{Euler-Cautchy Method}
+The combined method is a combination of the Euler-Cauchy Method and the Newton-Raphson Method. 
+\subsubsection{Euler-Cauchy Method}
 This method it an incremental method, meaning that the external load is applied step-wise. For each step the displacement increment $\boldsymbol{\Delta r}$ is determined. The total displacement is then calculated by adding the incremental displacements. The incremental stiffness matrix $\boldsymbol{K_I}$ is constant for each increment, and is calculated for each step based on the current displacement and stress before a new load increment is added. This is illustrated in figure \ref{fig:euler}. For load increment number (m+1):
 \begin{equation}
 \Delta \boldsymbol{r_{m+1}}= \boldsymbol{K_{I}}(\boldsymbol{r_{m}})^{-1} \Delta \boldsymbol{R_{m+1}}
@@ -72,7 +72,7 @@ Where:
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{figures/euler}
-\caption[$\; \:$Euler-Cautchy Method]{Euler-Cautchy Method  \cite{moan2003} }
+\caption[$\; \:$Euler-Cauchy Method]{Euler-Cauchy Method  \cite{moan2003} }
  \label{fig:euler}
 \end{figure}
 \noindent As the incremental stiffness from the previous increment is used, this will only give an approximation, and does not fulfill total equilibrium. This can be seen in figure \ref{fig:euler} where the approximation is plotted with the true solution. More accurate results will be obtained by using smaller increment size and by equilibrium corrections. 
@@ -115,7 +115,7 @@ When combining the two methods load is applied according to the Euler-Cauchy met
  \label{fig:combined}
 \end{figure}
 \section{Method for Dynamic Calculation}
-Dynamic analysis has to be considered when external loads are not applied in a very slow manner. Dynamic loads are different from static loads by implying a time dependent solution and by introducing inertia loads throughout the structure, and often also damping. The equilibrium equation for a dynamic system is stated by \cite{Langen1999} as :
+Dynamic analysis has to be considered when external loads are not applied in a very slow manner. Dynamic loads are different from static loads by implying a time dependent solution and by introducing inertia loads throughout the structure, and often also damping. The equilibrium equation for a dynamic system is stated by \cite{Langen1999} as:
 
 \begin{equation}
   \boldsymbol{M \ddot{r}} + \boldsymbol{C \dot{r}} + \boldsymbol{Kr} =  \boldsymbol{Q(t)}
@@ -158,7 +158,7 @@ Where $\alpha_1$ and $\alpha_2$ are the damping coefficients for the Rayleigh da
 \noindent
 \newline
 \newline 
-\noindent  The dynamic equilibrium equation is an initial value problem, meaning that the solution is determined by start values. Practical numerical integration methods use a step-by-step approach. The time interval where the solution is wanted is divided into subintervals with step length h, as can be seen in figure \ref{fig:step}. Displacement, velocity, and acceleration are known for the beginning of the subinterval, and the solution for the end of the subinterval is calculated by assuming the variation of the acceleration over the time step. The computed value will be used to determine the velocity and displacement across the time step, and they will be the start values for the next subinterval. This way, an approximated solution is calculated at instants along the time axis, and accuracy increases as h decreases, \cite{Langen1999}.
+\noindent  The dynamic equilibrium equation is an initial value problem, meaning that the solution is determined by start values. Practical numerical integration methods use a step-by-step approach, where the time interval is divided into sub-intervals with step length h. Displacement, velocity, and acceleration are known for the beginning of the sub-interval, and the solution for the end of the sub-interval is calculated by assuming the variation of the acceleration over the time step. The computed value will be used to determine the velocity and displacement across the time step, and they will be the start values for the next sub-interval. This way, an approximated solution is calculated at instants along the time axis, and accuracy increases as h decreases, \cite{Langen1999}.
 \newline 
 \newline
  \noindent How the acceleration changes during a time step is suggested by several methods. Only the methods relevant to this project/master thesis will be presented\newline
@@ -166,7 +166,7 @@ Where $\alpha_1$ and $\alpha_2$ are the damping coefficients for the Rayleigh da
 \noindent 
 \subsection{Newmark's $\boldsymbol{\beta}$ Family}
 \label{sec:newmark}
-Newmark-$\boldsymbol{\beta}$ is a family of numerical integration of the dynamic equilibrium equations. It can easily be derived from assuming constant average acceleration over the time step. The following equations are taken from \cite{sintef2017} and \cite{Mathisen1990} : 
+Newmark-$\boldsymbol{\beta}$ is a family of numerical integration of the dynamic equilibrium equations. It can easily be derived from assuming constant average acceleration over the time step. The following equations are taken from \cite{sintef2017} and \cite{Mathisen1990}: 
 \begin{equation}
    \boldsymbol{M_t \ddot{r}_{t+\Delta t}} + \boldsymbol{C_{T,t}\dot{r}_{t+\Delta t}} + \boldsymbol{R_{t+\Delta t}^S}=\boldsymbol{{R_{t+\Delta t}^E}}
    \label{eq:new}
@@ -179,7 +179,7 @@ Newmark-$\boldsymbol{\beta}$ is a family of numerical integration of the dynamic
 \end{equation}
 where  $\Delta \tau =\theta \Delta t, \leq 1.0$\newline
 \newline
-$\gamma$, $\beta$ and $\theta$ are parameters defining the change in acceleration, velocity and displacement vectors in time step $\Delta t$. \cite{Langen1999} stated that  the equations are obtained from Taylor-series expansion.  Different values of these parameters give different methods in the Newmark-$\boldsymbol{\beta}$ family. $\gamma$ represents the numerical damping, taken from \cite{sintef2017}: 
+$\gamma$ and $\beta$ are parameters defining the change in acceleration, velocity and displacement vectors in time step $\Delta t$. \cite{Langen1999} explains that the equations are obtained from Taylor-series expansion.  Different values of these parameters give different methods in the Newmark-$\boldsymbol{\beta}$ family. $\gamma$ represents the numerical damping, taken from \cite{sintef2017}: 
 \begin{itemize}
     \item $\gamma > \frac{1}{2}$: Positive numerical damping
     \item $\gamma < \frac{1}{2}$: Negative numerical damping
@@ -191,7 +191,7 @@ According to \cite{Mathisen1990}, the Newmark-$\boldsymbol{\beta}$ method may ha
 \newline
 \noindent In dynamic analysis, the higher modes are of little interest, and these can be removed by using introducing increased damping ratio. The Newmark's $\boldsymbol{\beta}$ Family will remove the medium modes, and not affecting the lowest and highest modes. The higher modes can be removed by introducing numerical damping, but it is at the cost of accuracy.  The method can be applied both for linear and non-linear analysis \cite{sintef2017}.
 
-\subsection{Modifid Hilber-Hughes-Taylor Method}
+\subsection{Modified Hilber-Hughes-Taylor Method}
 \label{sec:HHT}
 The problem with accuracy when removing the higher modes can be fixed by using Hilber-Hughes-Taylor Method, often referred to as HHT-$\alpha$. The method maintains accuracy while introducing artificial damping of the higher modes. This is done through modification of equation \ref{eq:new}. 
 \begin{equation}
@@ -208,12 +208,12 @@ The method is unconditionally stable when:
 \noindent The method is effectively suppressing high frequency and also retains second-order accuracy. \cite{Mathisen1990}
 
 \section{Global Model in SIMA RIFLEX}
-SIMA RIFLEX is a computer program made for analyzing slender structures such as flexible risers and mooring lines developed by SINTEF Ocean. Combined method is used for the static calculation and Newmark-$\boldsymbol{\beta}$ is used for dynamic analysis. These methods are described in section \ref{sec:combined} and \ref{sec:newmark} respectively. 
+SIMA RIFLEX is a computer program made for analyzing slender structures such as flexible risers and mooring lines developed by SINTEF Ocean. It combined method is used for the static calculation and Newmark-$\boldsymbol{\beta}$ is used for dynamic analysis. These methods are described in section \ref{sec:combined} and \ref{sec:newmark} respectively. 
 
 
 \subsection{Element Formulation}
 \label{sec:ghost}
-SIMA RIFLEX uses co-rotated ghost reference as element formulation for beam elements
+SIMA RIFLEX uses co-rotated ghost reference as element formulation for beam elements. 
 \begin{comment}
 \subsection{Total Lagrangian Formulation}
 \label{sec:ghost}
@@ -235,7 +235,7 @@ This is convenient when it is assumed that the initial configuration deforms as 
 \end{figure}
 
 \subsection{Element Description}
-In this section, the relevant element types and their kinematics will be presented. Only elements that will be used in the project/master thesis are included. 
+In this section, the relevant element type and its kinematics will be presented. Only  the element that will be used in the project/master thesis is included. 
 \subsubsection{Beam element}
 \noindent The beam element in SIMA RIFLEX has 2 nodes with 6 degrees of freedom for each node, 3 translational and 3 rotational that can be seen in figure \ref{fig:beamri} that are defined in relation to the local Cartesian coordinate system in the initial C0n configuration,
 \cite{sintef2017}.
@@ -285,7 +285,7 @@ Where $\boldsymbol{C^S}$ is the  internal structural damping matrix, $\boldsymbo
 In SIMA RIFLEX the water velocity and motion is decomposed into x,y and z, where x is in the longitudinal direction and y and z as the symmetry axes for the cross section.
 
 \section{Local Model in BFLEX }
-BFLEX is a computer program developed by Professor Svein Sævik. \cite{Bflextheory2013}  and \cite{Bflextheory2017} are used as a basis for this section.  The Newton-Raphson method, described in section \ref{sec:newton} is used for calculations in the static analysis. While for the dynamic analysis the modified HHT-$\alpha$ method described in section \ref{sec:HHT}.
+BFLEX is a computer program developed by Professor Svein Sævik. \cite{Bflextheory2013}  and \cite{Bflextheory2017} are used as a basis for this section.  The Newton-Raphson method, described in section \ref{sec:newton} is used for calculations in the static analysis. While for the dynamic analysis the modified HHT-$\alpha$ method described in section \ref{sec:HHT} is used.
 
 \subsection{Element Formulation}
 BFLEX is also using co-rotated ghost reference described in section \ref{sec:ghost}, 
@@ -424,7 +424,7 @@ In addition to the traditional Euler equations and boundary conditions the follo
     (\Delta \boldsymbol{u_B} - \Delta \boldsymbol{u_A}) \cdot \boldsymbol{n} + g_0=\frac{\Dela \lambda_n}{\alpha}
     \label{eq:contact}
 \end{equation}
-If $alpha -> \infty$ the contact condition is recovered exactly.\newline
+If $\alpha \rightarrow \infty$ the contact condition is recovered exactly.\newline
 \newline 
 \noindent The contact kinematic of the HCONT463 element will be:
 \begin{equation}
@@ -434,6 +434,7 @@ Where
 \begin{equation}
   u_3^{0A}=(1-\xi)u^{\frac{1}{3}}+\xi u^{\frac{1}{3}}-L \xi (1-\xi)^2 + -L \xi^2(1-\xi)
 \end{equation}
+\noindent and
 \begin{equation}
     u_3^{0B} = (\gamma_1^1 + \gamma_2^1 \cos2\psi+ \gamma_3^1 \sin2\psi)(1-\xi)+(\gamma_1^2 + \gamma_1^2 \gamma_2^2 \cos2\psi+ \gamma_3^2 \sin 2\psi)\xi
 \end{equation}

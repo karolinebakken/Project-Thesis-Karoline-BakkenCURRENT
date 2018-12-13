@@ -1,12 +1,12 @@
 \chapter{Fatigue due to Environmental Loads}
 \label{chap:fatigue}
-In the case of a floating wind turbine, environmental loads that will work on the model includes waves, wind, current and more. In this project/master thesis the focus will be on wave loads. Due to the cyclic nature of waves, failure of a dynamic power cable applied in offshore wind farms can be caused by either overloading or fatigue. In this master/project thesis the focus will be on failure due to fatigue. This section will attempt to explain the basic principles on how waves can give fatigue damage for a dynamic power cable attached to a floating wind turbine, as can be seen in the simple flowchart in figure \ref{fig:flow}. 
+In the case of a floating wind turbine, environmental loads that will work on the model includes waves, wind, current and more. In this project/master thesis the focus will be on wave loads. Due to the cyclic nature of waves, failure of a dynamic power cable applied in offshore wind farms can be caused by either overloading or fatigue. In this master/project thesis the focus will be on failure due to fatigue. This section will attempt to explain the basic principles on how waves can give fatigue damage for a dynamic power cable attached to a floating wind turbine, as can be seen in the simple flowchart in figure \ref{fig:flowchart}. 
 
 \begin{figure}[h!]
 \centering
 \includegraphics[scale=0.4]{figures/box}
 \caption[$\; \:$Flowchart]{Flowchart for how waves can give fatigue damage in floating structure}
- \label{fig:flow}
+ \label{fig:flowchart}
 \end{figure}
 
 \section{Statistical Description of Waves} 
@@ -19,7 +19,7 @@ Where $\omega$ is the circular frequency, $t$ is time, $k$ is the wave number, $
 \begin{equation}
     \frac{1}{2}A_j=S(\omega_j) \Delta \omega
 \end{equation}
-Where $\Delta \omega$ is the difference between successive frequencies. The wave elevation is Gaussian distributed with mean at zero and $\sigma^2= \int_0 ^ \infty S(\omega) d\omega $. The wave spectrum assumes that the sea can be described as a stationary random process, meaning that it is a short-time description of the sea state. The sea state is defined by the significant wave height, Hs and the peak period, Tp. Hs is the mean height of the $\frac{1}{3}$ highest waves in the sea state, and Tp is the peak frequency of the wave spectrum. There exist several different spectrums but according to \cite{Lifes50+D1.1} the JONSWAP (Joint North Sea Wave Project) is suitable for "wind seas", and thus this is what will be used in this case. The JONSWAP spectrum can be described as:
+Where $\Delta \omega$ is the difference between successive frequencies. The wave elevation is Gaussian distributed with mean at zero and $\sigma^2= \int_0 ^ \infty S(\omega) d\omega $. The wave spectrum assumes that the sea can be described as a stationary random process, meaning that it is a short-time description of the sea state. The sea state is defined by the significant wave height, Hs and the peak period, Tp. Hs is the mean height of the $\frac{1}{3}$ highest waves in the sea state, and Tp is the peak frequency of the wave spectrum. There exist several different spectrums but according to \cite{Lifes50+D1.1}: the JONSWAP (Joint North Sea Wave Project) is suitable for "wind seas", and thus this is what will be used in this case. The JONSWAP spectrum can be described as:
 \begin{equation}
     S(\omega)=155 \frac{H_s^2}{T_1^4 \omega ^5} \exp{(\frac{-994}{T_1^4 \omega ^4})} 3.3^Y
 \end{equation}
@@ -134,7 +134,7 @@ For the low cycle fatigue, the material will experience plastic deformation. For
  \end{equation}
  
 \subsection{Irregular Loading}
-For marine structures, it is common that the loading is irregularly cyclic (figure \ref{fig:irr}, that is that the amplitude and frequency vary over time. The lifespan for a typical specimen in the offshore industry is 20 years with an average frequency at 16 1/s. To make design process manageable, this has to be reduced to a more practical format.  
+For marine structures, it is common that the loading is irregularly cyclic (figure \ref{fig:irr}), where the amplitude and frequency vary over time. The lifespan for a typical specimen in the offshore industry is 20 years with an average frequency at 16 1/s. To make design process manageable, this has to be reduced to a more practical format.  
 
 \begin{figure}[H]
 \centering
@@ -155,7 +155,7 @@ In figure \ref{fig:irr}, a few concepts of irregular loading are defined:
  
 \subsubsection{Rain flow counting}
 \label{sec:rainflow}
-There are several ways of counting cycles, and rain flow counting is one of them. The name of this method stems from the thought of rain falling on the roof of a pagoda (Chinese architecture). In this procedure, the reversals are counted in accordance with the stress-strain response. This can be seen in figure \ref{fig:count}, where the cycle from 2-3-2' does not affect the rest of the stress-strain cycle. Each time a loop is completed, a cycle count is made. This means that the counting of the cycles are reflecting the way the material is responding. The fatigue damage caused by a closed loop in the irregular amplitude loading is, according to this counting method, the same as one cycle in a constant amplitude test. Half cycles cannot be paired up with other half cycles, so the damage they make on the structure is not counted in this method, but in a realistic case, there will be few half cycles. Due to its versatility, the rain flow method is considered a superior method to the other counting methods. 
+There are several ways of counting cycles, and rain flow counting is one of them. The name of this method stems from the thought of rain falling on the roof of a pagoda (Chinese architecture). In this procedure, the reversals are counted in accordance with the stress-strain response. This can be seen in figure \ref{fig:count}, where the cycle from 2-3-2' does not affect the rest of the stress-strain cycle. Each time a loop is completed, a cycle count is made. This means that the counting of the cycles are reflecting the way the material is responding. The fatigue damage caused by a closed loop in the irregular amplitude loading is, according to this counting method, the same as one cycle in a constant amplitude test. Half cycles cannot be paired up with other half cycles, so the damage they do on the structure is not counted in this method, but in a realistic case, there will be few half cycles. Due to its versatility, the rain flow method is considered a superior method to the other counting methods. 
 
 \begin{figure}[H]
 \centering
@@ -164,7 +164,7 @@ There are several ways of counting cycles, and rain flow counting is one of them
  \label{fig:count}
 \end{figure}
 
-\noindent Figure \ref{fig:pagoda} shows the thought behind the rain flow counting name, and the method is as follows:\newline 
+\noindent Figure \ref{fig:pagoda} shows the rain flow counting method method:\newline 
 \newline
 Begin at the first valley. If the next valley is deeper or equal to the first one, the rain flow stops here and a cycle is counted, (see point 5 in the figure). If the valley is not deeper than the first one, the flow proceeds to the next valley, (see point 3 in the figure). The rain-flow is also considered to stop if it meets another flow from above, (see point 2' in the figure) When one rain flow has stopped, proceed to the next valley and repeat the procedure. When this has been done to all the valleys, do the same for all the peaks. The results from the rain flow counting can be gathered in a histogram that easily will show the number of cycles for different levels. 
 
@@ -186,7 +186,7 @@ Where $n_i$ is the number of cycles with a certain stress range experienced by t
 The specimen will fail due to fatigue if D exceeds 1.
 
 \subsection{Fatigue of Dynamic Power Cables}
-\noindent According to \cite{Nasution2013}, when the cable is in operation, it will experience loads from gravity, the motions of the floating vessel and from the sea. The cable will experience a mean global tension and torque due to the gravity. Surge and heave motion will induce dynamic tensile and torque, while pitch and roll motion will give a dynamic curvature of the cable. This can be seen in figure \ref{fig:float}. 
+\noindent According to \cite{Nasution2013}, when the cable is in operation, it will experience loads from gravity, the motions of the floating vessel, and from the sea. The cable will experience a mean global tension and torque due to the gravity. Surge and heave motion will induce dynamic tensile and torque, while pitch and roll motion will give a dynamic curvature of the cable. This can be seen in figure \ref{fig:float}. 
 
 \begin{figure}[H]
 \centering
@@ -205,10 +205,10 @@ There are mainly three reasons for mechanical failure in marine power cables app
 
 \noindent According to \cite{Karlsen2010}, the individual wires and the intersection between them is what determines the fatigue properties of a copper conductor. R-ratio of loading and wire interaction have been recognized as important factors to fatigue life in copper conductors, and fretting fatigue (fatigue due to oscillating load on a junction between two components \cite{Hills1994}) is identified as one of the dominating mechanisms in a multi-layer stranded steel wire. Friction force increases with increasing lay angle and friction coefficient for the material. The copper conductors do not only have contact between conductor surfaces, but also with the protecting sheath around the conductors, giving a complex friction situation. 
 
-\subsection{Fatigue of Copper Conductors}
+\subsubsection{Fatigue of Copper Conductors}
 According to a study done by \cite{Nasution2013}, when testing individual wires as well as a full cross-section of a three-phase 95mm$^2$, all failures occurred in the inner layer for the cross-section bent over a bell mouth. In addition, individual wires from the outer layer of the cross section were tested in controlled tension-tension loading. Here, all initiation of crack growth happened within or at the edge of the trellis contact area, that has been deformed due to the compacting process of the cable. The study concludes with that the difference in fatigue life between layers is due to the variance of surface irregularities. Another study, performed by \cite{NASUTION2014} states that the first fatigue failure for a copper conductor subjected to tension-tension fatigue happens in the outer layer. this indicates that the fatigue performance is governed by local effects due to surface irregularities of the different layers. \newline
 \newline
-\noindent \cite{savik2014} developed a model for stress variation in individual wires in the conductor cross section. This model applies for conductors exposed to static and dynamic tension in combination with dynamic curvature, and the maximum longitudinal stress will occur in the outer fiber of the conductor.  
+\noindent \cite{savik2014} developed a model for stress variation in individual wires in the conductor cross section. This model applies for conductors exposed to static and dynamic tension in combination with dynamic curvature, and the maximum longitudinal stress will occur in the outer fiber of the conductor. The stress variation can be calculated as:   
 \begin{equation}
     \Delta \sigma = \Delta \sigma_T + \Delta \sigma_{tc} + \Delta \sigma_{nc} + \Delta \sigma_{f}
     \label{eq:stressvariation}
