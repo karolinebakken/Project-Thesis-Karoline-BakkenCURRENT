@@ -1,0 +1,217 @@
+\chapter{Case Scenario}
+To investigate fatigue of dynamic power cable applied in offshore wind, a realistic case study was needed. In this chapter, the chosen concept will be described as well as the weather conditions at the proposed location.  
+\section{Floating Wind Turbine}
+OO-Star was chosen as the floating wind turbine for the case study. This is a design by Dr. Techn. Olav Olsen, and the project Lifes50+ has been used as a base for the design and other relevant information. 
+\subsection{Lifes50+}
+Lifes50+ is a large research project whose goal is to develop cost-effective floating solutions for 10MW wind turbines. The project is financed by the Horizon 2020 program, "[...]the biggest EU research and Innovation program ever, with nearly 80 billion euros of funding available over 7 years (2014-2020)" \cite{Horizon2010}. According to \cite{Olavolsen}, the total budget on the project is 7.3 million euros. There are 12 partners involved with the project, including DNV GL and SINTEF. The project consists of 4 different designs and 3 different locations on water depths more than 50m. Figure \ref{fig:concept} shows the different designs in the project, and figure \ref{fig:sites} shows the different locations in the project. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{figures/concepts}
+\caption[$\; \:$Concepts of the Lifes50+ project]{The different concepts of the Lifes50+ project \cite{Lifes50+} }
+ \label{fig:concept}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{figures/sites}
+\caption[$\; \:$Sites for Lifes50+ project]{The different sites for Lifes50+ project \cite{Lifes50+D1.6} }
+ \label{fig:sites}
+\end{figure}
+
+\subsection{OO-Star}
+OO-star is one of the two designs to proceed to the second stage of the project. It is a design developed by the Norwegian company Dr. Techn. Olav Olsen.\newline
+\newline
+The support structure is a semi-submersible consisting of one column in the center supporting the tower and turbine, and three outer columns equally spaced, all mounted on a star-shaped pontoon, as can be seen in figure \ref{fig:oostar}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{figures/oostar}
+\caption[$\; \:$Dr. Techn. Olav Olsen's OO-Star]{Dr. Techn. Olav Olsen's OO-Star \cite{Lifes50+D4.2} }
+ \label{fig:oostar}
+\end{figure}
+
+\noindent The main material is post-tensioned concrete, and the main dimensions are displayed in figure \ref{fig:designoostar}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{figures/designoostar}
+\caption[$\; \:$Main dimensions of OO-Star]{Main dimensions of OO-Star \cite{Lifes50+D4.2} }
+ \label{fig:designoostar}
+\end{figure}
+
+\section{Environmental Conditions}
+As mentioned earlier in this section, 3 possible locations were used for the Lifes50+ project with different degree of challenging conditions. For this project thesis, the chosen location will be West of Barra, Scotland. The main basis for this choice was that this was the site with the deepest water, and this is also the site with the most challenging weather conditions. This section contains information mainly from the report \cite{Lifes50+D1.1}.
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{figures/wob}
+\caption[$\; \:$West of Barra, Scotland]{Possible location for floating wind turbine, West of Barra, Scotland \cite{Lifes50+D1.1} }
+ \label{fig:wob}
+\end{figure}
+
+\noindent The water depth in at the location West of Barra is between 56-118m. In this project thesis, 118 m will be used. 
+
+\subsection{Wind Climate}
+
+The wind speeds at West of Barra are high and reliable throughout the year, with a mean annual power density of 1.3 $\frac{kW}{m^2}$. The following wind and wave data is based on \cite{geos2001}, and extrapolated and modified by \cite{Lifes50+D1.1}. 
+\\\\
+Table \ref{table:wind} shows the ten minute mean wind speed profile at different heights, and extreme value wind speed is shown in table  \ref{table:windex}
+\begin{table} [H]
+\centering
+\begin{tabular}{ |c|c|}
+\hline
+ Height [m]& Wind speed [m/s]\\
+ \hline
+ \hline
+ 10 & 9.50 \\
+
+ 20 & 10.16 \\
+ 
+ 50 & 10.97 \\
+ 
+ 120 & 11.58 \\
+
+ 119 & 11.74  \\
+ \hline
+\end{tabular}
+\caption{Ten minute mean wind speed profile}
+\label{table:wind}
+\end{table}
+
+\begin{table} [H]
+\centering
+\begin{tabular}{ |c|c|}
+\hline
+ Height [m]& Wind speed [m/s]\\
+ \hline
+ \hline
+ 10 & 26.47 \\
+
+ 20 & 35.63 \\
+ 
+ 50 & 44.13 \\
+ 
+ 120 & 48.97 \\
+
+ 119 & 50.00  \\
+ \hline
+\end{tabular}
+\caption{Ten minute mean extreme value speed profile}
+\label{table:windex}
+\end{table}
+
+\noindent Figure \ref{fig:scatterwind} shows the scatter diagram for wind conditions at west of Barra. With north being 0 degrees
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{figures/scatterwind}
+\caption[$\; \:$Scatter diagram for wind conditions]{Scatter diagram for wind conditions at West of Barra \cite{Lifes50+D1.1} }
+ \label{fig:scatterwind}
+\end{figure}
+
+
+\subsection{Wave Climate}
+The wave loads to be applied to the floating wind turbine are based on the scatter diagram for the location in West of Barra. To avoid the area of severe resonance, the sea states for the periods 17-18 seconds and 18-19 seconds have been moved to the 16-17 seconds column as can be seen in figures \ref{fig:scato} and \ref{fig:scatn}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{figures/scatteroriginal}
+\caption[$\; \:$Original scatter diagram]{Original scatter diagram \cite{Lifes50+D1.1} }
+ \label{fig:scato}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{figures/scatternew}
+\caption[$\; \:$Modified scatter diagram ]{Modified scatter diagram  }
+ \label{fig:scatn}
+\end{figure}
+
+\section{Wind Mill Floater Motions}
+To simulate the motion of OO-star, Olav Olsen have provided the transfer functions for all 6 degrees of freedom for the vessel. In the model, the cable is attached some distance from the center of gravity as can be seen in figure \ref{fig:cabhang}. This distance has been calculated to be 9.24m.
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1.2]{figures/cabhang}
+\caption[$\; \:$Cable hang off position]{Cable hang off position, modified from \cite{Lifes50+D4.2}}
+ \label{fig:cabhang}
+\end{figure}
+ \noindent The transfer functions of OO-star are confidential and can not be reproduced in this report. 
+ 
+\section{Power Cable}
+The choice of power cable cross section is based on guidance from Professor Svein Sævik. 
+
+\subsection{Cable Cross Section}
+ An illustration of the model cross section used is shown in figure \ref{fig:cross2}. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{figures/cross2}
+\caption[$\; \:$Cable cross section in local model]{Illustration of cable cross section in local model  }
+ \label{fig:cross2}
+\end{figure}
+
+\noindent The different components in the local model are:
+\begin{enumerate}[label=\Alph*]
+\item Core
+\item Electrical conductor + insulation
+\item Sheath around conductors
+\item 1st layer of Armouring 
+\item Tape between the two layers of armouring
+\item 2nd layer of armouring
+\item Protective sheath
+\end{enumerate}
+
+\noindent The dimensions of the cross-section are based in the conductor + insulation cross-section, and all other dimensions are calculated from this. The conductor itself has an area of 95$mm^2$, and in addition, there is a layer of insulation, making the radius of the of conductor + insulation 15mm.  The calculations of the radius of the center tube and the 1st sheath are based on trigonometry. By imagining a like-sided triangle with its corners in the center of each of the conductors, the following relations can be derived: 
+
+
+  \begin{equation}
+   r_{ct} = r_c (\tan(60)-\tan(30)-1)
+\end{equation}
+
+ \noindent Where $r_{ct}$ is the radius of the center tube and $r_c$ is the radius of the conductor.
+
+ \begin{equation}
+   r_{s} = r_c (1+\tan(60)-\tan(30))
+\end{equation}
+ 
+  \noindent Where $r_{s}$ is the radius of the sheath around the conductors and $r_c$ is the radius of the conductor. \newline
+  \newline 
+  \noindent The dimensions of the local model is given in table \ref{table:dim}. 
+
+
+\begin{table} [H]
+\centering
+\begin{tabular}{ |c|c|c|}
+\hline
+Component & Radius [mm] & Thickness [mm] \\
+ \hline
+ \hline
+ Conductor + Insulation & 15 &\\
+
+ Center tube & 2.32& \\
+ 
+ Sheath 1 & 33.07 & 1.5 \\
+ 
+Armouring & 1.5 &  \\
+
+Tape & 37.57 & 0.5 \\
+
+Sheath 3 & 42.82& 3  \\
+
+ \hline
+\end{tabular}
+\caption{Dimensions of local model}
+\label{table:dim}
+\end{table} 
+\subsection{Power Cable SN fatigue data}
+To estimate the life time of the power cable, a S-N curve from \cite{savik2014} will be used, with the slope parameter $m=8.41$. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{figures/SNplot}
+\caption[$\; \:$S-N curve for individual wires]{S-N curve for individual wires based on max range $\Delta \sigma_{xx}$ \cite{savik2014}}
+ \label{fig:SNplot}
+\end{figure}

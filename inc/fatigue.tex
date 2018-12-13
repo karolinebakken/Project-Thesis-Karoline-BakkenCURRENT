@@ -1,0 +1,244 @@
+\chapter{Fatigue due to Environmental Loads}
+\label{chap:fatigue}
+In the case of a floating wind turbine, environmental loads that will work on the model includes waves, wind, current and more. In this project/master thesis the focus will be on wave loads. Due to the cyclic nature of waves, failure of a dynamic power cable applied in offshore wind farms can be caused by either overloading or fatigue. In this master/project thesis the focus will be on failure due to fatigue. This section will attempt to explain the basic principles on how waves can give fatigue damage for a dynamic power cable attached to a floating wind turbine, as can be seen in the simple flowchart in figure \ref{fig:flow}. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.4]{figures/box}
+\caption[$\; \:$Flowchart]{Flowchart for how waves can give fatigue damage in floating structure}
+ \label{fig:flow}
+\end{figure}
+
+\section{Statistical Description of Waves} 
+ The theory in this section is taken from \cite{Faltinsen1990}. For linear theory, the results from irregular waves can be obtained by adding together results from regular waves. For long-crested irregular sea, the wave elevation can be described as:
+\begin{equation}
+    \zeta = \sum_{j-1}^N A_j \sin(\omega_jt-k_jx+\epsilon_j)
+    \label{eq:elevation}
+\end{equation}
+Where $\omega$ is the circular frequency, $t$ is time, $k$ is the wave number, $\epsilon$ is phase and $A$ is the the amplitude that can also be expressed in terms of the wave spectrum:
+\begin{equation}
+    \frac{1}{2}A_j=S(\omega_j) \Delta \omega
+\end{equation}
+Where $\Delta \omega$ is the difference between successive frequencies. The wave elevation is Gaussian distributed with mean at zero and $\sigma^2= \int_0 ^ \infty S(\omega) d\omega $. The wave spectrum assumes that the sea can be described as a stationary random process, meaning that it is a short-time description of the sea state. The sea state is defined by the significant wave height, Hs and the peak period, Tp. Hs is the mean height of the $\frac{1}{3}$ highest waves in the sea state, and Tp is the peak frequency of the wave spectrum. There exist several different spectrums but according to \cite{Lifes50+D1.1} the JONSWAP (Joint North Sea Wave Project) is suitable for "wind seas", and thus this is what will be used in this case. The JONSWAP spectrum can be described as:
+\begin{equation}
+    S(\omega)=155 \frac{H_s^2}{T_1^4 \omega ^5} \exp{(\frac{-994}{T_1^4 \omega ^4})} 3.3^Y
+\end{equation}
+Where
+\begin{equation}
+    Y= \exp \left(-\left( \frac{0.191 \omega T_1 -1}{2^\frac{1}{2} \sigma} \right)^2\right)
+\end{equation}
+
+\begin{figure}[H]
+\subfloat[General Wave Spectrum \label{fig:lm_total}]
+  {\includegraphics[width=.45\linewidth]{figures/spectrum}}\hfill
+\subfloat[JONSWAP Wave Spectrum \label{fig:lm_cross}]
+  {\includegraphics[width=.35\linewidth]{figures/JONSWAP}}\hfill
+\caption[$\; \:$General wave spectrum and JONSWAP Spectrum]{General wave spectrum and JONSWAP Spectrum \cite{Faltinsen1990}}
+\label{fig:spectrum}
+\end{figure}
+
+\noindent The long-term sea state is often described in a scatter diagram featuring the number of occurrences for different Hs and the Tp.  \newline
+\newline\newline
+
+\section{Load from Waves}
+The loads from the waves acting on the floating wind turbine can be calculated using Morison's Equation. The general Morison's Equation expresses the horizontal force dF on a strip of the length dz of a vertical cylinder and is formulated in \cite{BP2007} as:
+\begin{equation}
+    dF=\rho \frac{\pi D^2}{4} C_M a_x dz +\frac{1}{2} \rho C_D Du |u|dz
+    \label{eq:morison}
+\end{equation}
+\noindent Where $\rho$ is the density of the water, D is the diameter of the pipe, $C_M$ is the mass coefficient, $a_x$ is the horizontal particle acceleration, is the acceleration in x direction, $C_D$ is the drag coefficient and u is the horizontal particle velocity.
+
+\section{Response}
+\cite{Langen1999} explains that an arbitrary loading can be written as a sum of harmonic components, and these can be Fourier-Transformed so that the contribution from each of the components will be a function of $\omega$. The response can also be transformed into the frequency domain, and this will give a direct measure of how the structure responds to different load frequencies. "Solution in the frequency domain is particularity suited for analysis of the response to stochastic loads [...]" \cite{Langen1999}. 
+ 
+\begin{figure}[H]
+\subfloat[Transformed excitation\label{fig:transex}]
+  {\includegraphics[width=.3\linewidth]{figures/transex}}\hfill
+\subfloat[Transfer function \label{fig:cavS2500}]
+  {\includegraphics[width=.3\linewidth]{figures/transex2}}\hfill
+  \subfloat[Transformed response \label{fig:cavS5000}]
+  {\includegraphics[width=.3\linewidth]{figures/transex3}}\hfill
+\caption[$\; \:$Solution in the frequency domain]{Solution in the frequency domain, \cite{Langen1999}}
+\label{fig:transex}
+\end{figure}
+
+\noindent Motion transfer functions give an efficient description of the motion characteristics of a floating vessel. They are calculated for all 6 degrees of freedom on a specified point on the vessel from either potential theory or experimental tests. \cite{sintef2017}. Due to linearity, the response can be analyzed for each wave component in equation \ref{eq:elevation} separately \cite{Faltinsen1990}. Recalling equation \ref{eq:elevation}, for wave elevation, the steady state response can be written as:
+
+\begin{equation}
+    A_j |H(\omega)|\sin(\omega_jt-\delta_j(\omega)+\epsilon_j)
+\end{equation}
+Where $|H(\omega)|$ is called the transfer function. For irregular sea, the response can be linearly superposed for all the different wave components:
+\begin{equation}
+    \sum_{j=1}^N  A_j |H(\omega)|\sin(\omega_jt-\delta_j(\omega)+\epsilon_j)
+\end{equation}
+ $|H(\omega)|$ and $\delta(\omega_j)$ are functions of frequency, $\omega$.\newline 
+ \newline
+
+
+\noindent In this project/master thesis the results from the global analysis will be expressed as time series, in the time domain, and Fourier transformations are necessary to convert the response from the frequency domain to the time domain. \newline
+\newline 
+\noindent For the global model in SIMA RIFLEX, the transfer functions of OO-Star have been provided by Dr. Techn. Olav Olsen, to simulate the motions of the vessel when subjected to waves. As the transfer functions are regarded as confidential they cannot be reproduced in this project thesis report.   
+
+\section{Fatigue}
+Fatigue is damage due to cyclic loading over time where the stress is usually lower than the yield stress for a given material. In this section, some basic concepts related to fatigue will be presented, as well as some methods that are to be used in this master thesis. The following is taken from the compendium by \cite{fatigue2016}. \newline
+\newline
+\subsection{Basic Concepts}
+In figure \ref{fig:fatigue} some basic concepts are defined. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.6]{figures/cycle}
+\caption[$\; \:$Example of fatigue load history]{Example of fatigue load history  \cite{fatigue2016} }
+ \label{fig:fatigue}
+\end{figure}
+
+From this figure, it can be seen that:
+\begin{itemize}
+    \item $S_{max}$ -  Max stress/strain in a cycle
+    \item $S_{min}$ -  Min stress/strain in a cycle
+    \item $S_{m}$ - Mean stress/strain in a cycle
+\end{itemize}
+
+From this it follows that the stress range, $\Delta S$ is:
+
+\begin{equation}
+    \Delta S =S_{max} - S_{min}
+\end{equation}
+
+\noindent And the stress ratio, R is:
+\begin{equation}
+    R=\frac{S_{min}}{S_{max}}
+\end{equation}
+Fatigue data can be plotted in an SN diagram where stress or strain range is plotted against the number of cycles until failure, as can be seen in figure \ref{fig:sn}. For most applications, fatigue life spans over a high number of cycles, so the SN plot is presented as a log-log-diagram. It is common to differentiate between high cycle fatigue and low cycle fatigue, where high cycle fatigue has a fatigue life at more than $10^5$ cycles, and the stress is elastic. High cycle fatigue tends to follow a log-linear relationship called the SN curve:
+\begin{equation}
+    N(\Delta s)^m = \text{constant}
+\end{equation}
+For the low cycle fatigue, the material will experience plastic deformation. For marine structure applications, the stress is usually in the high cycle fatigue range. If the stress range is sufficiently low, fatigue life can approach "infinite". This is called the fatigue limit and only applies in non-corrosive environments. 
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=1]{figures/sn}
+\caption[$\; \:$Example of SN curve]{Example of SN curve  \cite{fatigue2016} }
+ \label{fig:sn}
+\end{figure}
+
+ \noindent The damage done by one cycle is usually close to insignificant, and undetectable by instruments. Failure due to fatigue is a result of the cumulative damage done by the cyclic loading. For marine structures, load from waves, current, motions, and vortex-induced vibrations may cause severe damage. Fatigue damage can be divided into three stages:
+ \begin{itemize}
+     \item Crack initiation, $N_i$
+     \item Crack growth, $N_g$
+     \item Failure
+ \end{itemize}
+ This means that the fatigue life can be calculated as:
+ \begin{equation}
+     N=N_i+N_g
+ \end{equation}
+ 
+\subsection{Irregular Loading}
+For marine structures, it is common that the loading is irregularly cyclic (figure \ref{fig:irr}, that is that the amplitude and frequency vary over time. The lifespan for a typical specimen in the offshore industry is 20 years with an average frequency at 16 1/s. To make design process manageable, this has to be reduced to a more practical format.  
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{figures/irr}
+\caption[$\; \:$Example of irregular loading]{Example of irregular loading  \cite{fatigue2016} }
+ \label{fig:irr}
+\end{figure}
+
+In figure \ref{fig:irr}, a few concepts of irregular loading are defined:
+\begin{itemize}
+\item Reversal - Where the first derivative changes sign
+    \item Peak - Where the first derivative changes from positive to negative sign
+    \item Valley - Where the first derivative changes from negative to positive sign
+    \item Range - Difference between a peak and a valley
+    \item Mean crossing - number of time the load-time history crosses the mean load level (normally only crossings with positive first derivative is counted
+    \item Bandwidth - Ratio of mean crossings with positive slope to the number of peaks or valleys. 
+\end{itemize}
+ 
+\subsubsection{Rain flow counting}
+\label{sec:rainflow}
+There are several ways of counting cycles, and rain flow counting is one of them. The name of this method stems from the thought of rain falling on the roof of a pagoda (Chinese architecture). In this procedure, the reversals are counted in accordance with the stress-strain response. This can be seen in figure \ref{fig:count}, where the cycle from 2-3-2' does not affect the rest of the stress-strain cycle. Each time a loop is completed, a cycle count is made. This means that the counting of the cycles are reflecting the way the material is responding. The fatigue damage caused by a closed loop in the irregular amplitude loading is, according to this counting method, the same as one cycle in a constant amplitude test. Half cycles cannot be paired up with other half cycles, so the damage they make on the structure is not counted in this method, but in a realistic case, there will be few half cycles. Due to its versatility, the rain flow method is considered a superior method to the other counting methods. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{figures/count}
+\caption[$\; \:$Cyclic load and stress-strain response]{(a)Cyclic load (b) Stress-strain response.   \cite{fatigue2016} }
+ \label{fig:count}
+\end{figure}
+
+\noindent Figure \ref{fig:pagoda} shows the thought behind the rain flow counting name, and the method is as follows:\newline 
+\newline
+Begin at the first valley. If the next valley is deeper or equal to the first one, the rain flow stops here and a cycle is counted, (see point 5 in the figure). If the valley is not deeper than the first one, the flow proceeds to the next valley, (see point 3 in the figure). The rain-flow is also considered to stop if it meets another flow from above, (see point 2' in the figure) When one rain flow has stopped, proceed to the next valley and repeat the procedure. When this has been done to all the valleys, do the same for all the peaks. The results from the rain flow counting can be gathered in a histogram that easily will show the number of cycles for different levels. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.9]{figures/pagoda}
+\caption[$\; \:$Rain flow counting]{Rain flow counting with illustrating the Chinese pagoda origin.    \cite{fatigue2016} }
+ \label{fig:pagoda}
+\end{figure}
+
+\subsection{Cumulative Damage}
+Several methods can be used to calculate the cumulative damage due to irregular amplitude cyclic loading. Miner-Palmgren approach has proven to be as good as other methods and is extremely simple. The Miner-Palmgren theory assumes that the damage is constant during a given stress range. The Miner-Palmgren expression:
+\begin{equation}
+    D=\sum_i \frac{n_i}{N} 
+    \label{eq:MP}
+\end{equation}
+Where $n_i$ is the number of cycles with a certain stress range experienced by the structure and N is the fatigue life of at that stress range.\newline
+\newline
+The specimen will fail due to fatigue if D exceeds 1.
+
+\subsection{Fatigue of Dynamic Power Cables}
+\noindent According to \cite{Nasution2013}, when the cable is in operation, it will experience loads from gravity, the motions of the floating vessel and from the sea. The cable will experience a mean global tension and torque due to the gravity. Surge and heave motion will induce dynamic tensile and torque, while pitch and roll motion will give a dynamic curvature of the cable. This can be seen in figure \ref{fig:float}. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{figures/float}
+\caption[$\; \:$Dynamic flexible power cable attached to semi-submersible wind turbine]{Dynamic flexible power cable attached to semi-submersible wind turbine \cite{Nasution2013}}
+ \label{fig:float}
+\end{figure}
+\noindent \cite{YangShun-Han2017} states that fatigue life is an important parameter in determining service life for a subsea a power cable. \cite{Thies2012} says that power cables can be used in static applications, where it is connected to a fixed structure, or dynamic application where they have to withstand significant cyclic loading. Due to this, dynamic power cables are subjected to fatigue failure.
+There are mainly three reasons for mechanical failure in marine power cables applied to marine energy applications, taken from \cite{Thies2012} :
+
+\begin{itemize}
+    \item Maximum axial tension
+    \item Over bending
+    \item Fatigue under extreme cyclic loads
+\end{itemize}
+
+\noindent According to \cite{Karlsen2010}, the individual wires and the intersection between them is what determines the fatigue properties of a copper conductor. R-ratio of loading and wire interaction have been recognized as important factors to fatigue life in copper conductors, and fretting fatigue (fatigue due to oscillating load on a junction between two components \cite{Hills1994}) is identified as one of the dominating mechanisms in a multi-layer stranded steel wire. Friction force increases with increasing lay angle and friction coefficient for the material. The copper conductors do not only have contact between conductor surfaces, but also with the protecting sheath around the conductors, giving a complex friction situation. 
+
+\subsection{Fatigue of Copper Conductors}
+According to a study done by \cite{Nasution2013}, when testing individual wires as well as a full cross-section of a three-phase 95mm$^2$, all failures occurred in the inner layer for the cross-section bent over a bell mouth. In addition, individual wires from the outer layer of the cross section were tested in controlled tension-tension loading. Here, all initiation of crack growth happened within or at the edge of the trellis contact area, that has been deformed due to the compacting process of the cable. The study concludes with that the difference in fatigue life between layers is due to the variance of surface irregularities. Another study, performed by \cite{NASUTION2014} states that the first fatigue failure for a copper conductor subjected to tension-tension fatigue happens in the outer layer. this indicates that the fatigue performance is governed by local effects due to surface irregularities of the different layers. \newline
+\newline
+\noindent \cite{savik2014} developed a model for stress variation in individual wires in the conductor cross section. This model applies for conductors exposed to static and dynamic tension in combination with dynamic curvature, and the maximum longitudinal stress will occur in the outer fiber of the conductor.  
+\begin{equation}
+    \Delta \sigma = \Delta \sigma_T + \Delta \sigma_{tc} + \Delta \sigma_{nc} + \Delta \sigma_{f}
+    \label{eq:stressvariation}
+\end{equation}
+\noindent Where $\Delta \sigma_T$ is the stress range due to dynamic tension, $\Delta \sigma_{tc}$ is the stress range from transverse curvature of the wire, $\Delta \sigma_{nc}$ is the stress range from normal curvature of the wire and $\Delta \sigma_{f}$ is the stress range from friction. The stress variation in the individual wires due to dynamic tension can be found from:
+\begin{equation}
+    \Delta \sigma_T^i = E \cos^2 \alpha_i \frac{\Delta T}{E A_{full}} 
+\end{equation}
+\noindent Where E is the Young's modulus of the material, $\Detla T$ is the tension range and $EA_{full}$  is the axial stiffness of the full cross section of the conductor and can be found from:
+\begin{equation}
+    EA_{full}=EA \left( 1+\sum_{i=1}^m n_i \cos^3\alpha_i \right)
+\end{equation}
+\noindent Where EA is the axial stiffness of each wire, $n_i$ is the number of wires in layer i and $\delta_i$ is the lay angle of layer i. \newline
+\newline
+The bending stress range for small lay angels can be approximated as:
+\begin{equation}
+    \Delta \sigma_{nc} = R_{nominal} E \cos^3 \alpha_i \cos^2 \alpha_i \Delta \kappa \cos \Psi = R_{nominal}E \Delta \kappa \cos \Psi
+\end{equation}
+Where $\Delta \kappa$ is the curvature range and $\Psi$ is the polar coordinate angle defining the helix position. \newline
+\newline
+The friction stress will be the smallest stress range from either the max allowed due to friction between the interfaces and the plane surfaces remain plane solution:
+\begin{equation}
+    \Delta \sigma_f^i =\text{min}\left(E \cos^2 \alpha_i R_i \Delta \kappa , \frac{\pi R_i \tau_i}{\sin \alpha_i A_i}\right)
+\end{equation}
+Where $R_i$ is the helix radius of the layer i and $\tau$ is the friction force per unit length, and can be determined by:
+\begin{equation}
+    \tau_i \cong E \epsilon_c \mu \left( \sum_{j=i+1}^m \frac{n_j A_j \cos^2 \alpha_j \sin^2 \alpha_j }{n_i R_i} + \sum_{j=i}^m \frac{n_j A_j \cos^2 \alpha_j  \sin^2 \alpha_j}{n_j R_i}\right)
+\end{equation}
+Where $\mu$ is the coefficient of friction and $\epsilon_c$ can be found from:
+\begin{equation}
+    \epsilon_c =\frac{T}{EA_{full}}
+    \label{eq:stressvariation2}
+\end{equation}
